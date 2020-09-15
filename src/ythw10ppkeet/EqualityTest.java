@@ -25,7 +25,7 @@ public class EqualityTest {
         // 进行等值测试
         Element e_1 = ParamsA.pairing.pairing(C_1.U, C_2.V);
         Element e_2 = ParamsA.pairing.pairing(C_2.U, C_1.V);
-        
+
         if (e_1.isEqual(e_2)) {
             System.out.print("等值测试成功!!!");
         } else {

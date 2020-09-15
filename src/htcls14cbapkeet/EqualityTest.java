@@ -1,7 +1,8 @@
-package t11fgpkeet;
+package htcls14cbapkeet;
 
-import it.unisa.dia.gas.jpbc.Element;
-import params.ParamsA;
+import java.util.Arrays;
+
+import utils.ByteArrayUtils;
 
 public class EqualityTest {
 
@@ -23,15 +24,14 @@ public class EqualityTest {
         }
 
         // 进行授权
-        Token T = new Token(ppkp_1, ppkp_2);
+        Token T_1 = new Token(C_1, ppkp_1);
+        Token T_2 = new Token(C_2, ppkp_2);
 
         // 进行等值测试
-        Element e_1 = ParamsA.pairing.pairing(C_1.C4, T.t1);
-        e_1 = e_1.div(ParamsA.pairing.pairing(C_1.C2, T.t2));
-        Element e_2 = ParamsA.pairing.pairing(C_2.C4, T.t1);
-        e_2 = e_2.div(ParamsA.pairing.pairing(C_2.C2, T.t3));
+        byte[] e_1 = ByteArrayUtils.xor(C_1.C3_hm, T_1.t);
+        byte[] e_2 = ByteArrayUtils.xor(C_2.C3_hm, T_2.t);
 
-        if (e_1.isEqual(e_2)) {
+        if (Arrays.equals(e_1, e_2)) {
             System.out.print("等值测试成功!!!");
         } else {
             System.out.print("等值测试失败!!!");

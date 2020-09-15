@@ -33,7 +33,7 @@ public class EqualityTest {
         Element e_2_hash = ParamsA.Zr
                 .newElementFromBytes(utils.HashUtils.notSafeHash(32, C_2.C2.powZn(T_2.t).toString()));
         Element e_2 = C_2.C4.mul(ParamsA.g.powZn(e_2_hash.negate()));
-        
+
         if (e_1.isEqual(e_2)) {
             System.out.print("等值测试成功!!!");
         } else {
